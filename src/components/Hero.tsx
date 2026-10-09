@@ -66,7 +66,7 @@ export function Hero() {
           ))}
         </h1>
 
-        <div className="mt-4 h-9 overflow-hidden whitespace-nowrap text-2xl font-semibold text-muted sm:h-14 sm:text-5xl md:h-16">
+        <div className="mt-4 min-h-[2lh] overflow-hidden text-2xl font-semibold leading-tight text-muted sm:text-5xl">
           <AnimatePresence mode="wait">
             <motion.p
               key={resume.rotatingRoles[index]}

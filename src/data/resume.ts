@@ -23,7 +23,7 @@ export type Education = {
 export const resume = {
   name: "Phanesh Yavarna",
   role: "Senior Data Analyst",
-  rotatingRoles: ["Senior Data Analyst", "Power BI & SQL Specialist", "Data Quality Automation", "Business Intelligence"],
+  rotatingRoles: ["Data Engineer (Senior Data Associate)", "Senior Data Analyst", "Data Analyst"],
   availability: "Available to join immediately",
   location: "Hyderabad, India",
   summary:
@@ -70,20 +70,34 @@ export const resume = {
       "Feature Engineering",
     ],
     "Cloud & Tools": ["Azure", "Google BigQuery", "Power Query", "Jupyter Notebooks", "UNIX"],
-    "AI Tools": ["GitHub Copilot", "ChatGPT", "Gemini"],
+    "AI Tools": ["Claude", "Claude Code", "GitHub Copilot", "ChatGPT", "Gemini"],
   } as Record<string, string[]>,
   experience: [
     {
-      role: "Senior Data Associate",
+      role: "Data Engineer (Senior Data Associate)",
       company: "Cognizant Technology Solutions",
-      period: "Apr 2025 – Present",
-      location: "Project: WMBIS · Client: Wells Fargo",
+      period: "Current project",
+      location: "Project: Financial Data Load & Position Processing Platform · Financial services",
       highlights: [
-        "Designed and implemented end-to-end data quality validation test cases based on business rules, data mapping documents, and transformation logic.",
-        "Automated trade file creation, external reference ID generation, and trade data processing using Python.",
-        "Built a validation framework comparing trade files against API (GPOS) responses to ensure referential integrity and economic consistency.",
-        "Developed automation modules for cancel-trade scenarios and ERAM Client Gateway validations.",
-        "Performed schema validation, duplicate checks, referential integrity checks, and downstream reconciliation.",
+        "Develop, analyse, deploy, test and support an enterprise data-load application that stages data from upstream securities-processing systems in replica tables and transforms it into Position and Subledger structures.",
+        "Built a separate Commission processing path that creates Commission Positions directly from fee-file attributes, leaving existing fee-processing and suppression logic unchanged.",
+        "Traced and documented column-level lineage from source file to replica, transformation, and Position or Subledger tables to support data governance and downstream analytics teams.",
+        "Retired obsolete production batch jobs with dependency-ordered delete scripts and rollback scripts, validated in SIT and UAT before release.",
+        "Monitor batch processing and find the root cause of failures across application code, infrastructure, missing source files and upstream dependencies.",
+        "Manage feature and release branches with cherry-picks, patches, PR reviews and approvals across DEV, SIT, UAT and PROD.",
+      ],
+    },
+    {
+      role: "Senior Data Analyst",
+      company: "Cognizant Technology Solutions",
+      period: "Previous project",
+      location: "Project: Data Quality Automation Framework · Client: Wells Fargo",
+      highlights: [
+        "Built and enhanced a configuration-driven data quality framework where every validation rule is defined in YAML, so new checks need no code changes.",
+        "Validated incoming CSV and TXT files before ingestion with Python and pandas, covering file existence, schema, record counts, file size, checksums, nulls, duplicates and min/max thresholds.",
+        "Ran SQL-based database checks after loading with SQLAlchemy and pandas, covering row counts, sums and averages, duplicates, nulls and business rules.",
+        "Reconciled source files against database records to catch data loss or mismatches during ingestion.",
+        "Logged results for auditing, integrated with Splunk and sent email notifications, stopping the pipeline on any failure so bad data never reached downstream systems.",
       ],
     },
     {
@@ -113,10 +127,22 @@ export const resume = {
   ] as Experience[],
   projects: [
     {
-      name: "Trade Data Validation Framework",
+      name: "Financial Data Load & Position Processing Platform",
       description:
-        "For Wells Fargo (WMBIS): a Python framework that automates trade file creation and checks trade files against GPOS API responses for referential integrity and economic consistency, including cancel-trade and ERAM Client Gateway scenarios.",
-      tags: ["Python", "API Testing", "Data Quality", "Reconciliation"],
+        "Current contract in financial services: an enterprise data-load application that stages data from upstream securities-processing systems in replica tables and transforms it into Position and Subledger structures. I built a separate Commission processing path that creates Commission Positions from fee-file attributes without changing existing fee logic, and documented column-level lineage from source file to Position and Subledger for data governance. I also retired obsolete production batch jobs with dependency-ordered delete and rollback scripts, find the root cause of batch failures, and manage release branches across DEV, SIT, UAT and PROD.",
+      tags: ["SQL Server", "Python", "PySpark", "Autosys", "Harness", "Data Lineage"],
+    },
+    {
+      name: "Data Quality Automation Framework (DQAF)",
+      description:
+        "At Cognizant Technology Solutions for Wells Fargo: a configuration-driven framework that validates data before ingestion and after loading, with every rule defined in YAML so new checks need no code changes. File checks cover schema, record counts, checksums, nulls, duplicates and thresholds. Database checks run SQL row-count, aggregate and business-rule validations, then reconcile source files against loaded records. Results are logged, sent to Splunk and emailed, and any failure halts the pipeline so bad data never reaches downstream systems.",
+      tags: ["Python", "Pandas", "SQLAlchemy", "YAML", "Splunk", "Data Quality"],
+    },
+    {
+      name: "Ledgerly: GST Invoicing & Inventory",
+      description:
+        "Personal project: a GST invoicing and inventory platform for Indian businesses. It covers GST-compliant invoices and tax calculation, quotations through to delivery challans, purchase orders, returns and credit notes, stock across multiple godowns, party ledgers and payments, and GST return reports. Bills and purchase orders can be scanned with OCR to fill in forms automatically. A separate marketing website handles pricing, a product tour and demo requests.",
+      tags: ["Next.js", "TypeScript", "PostgreSQL", "GST", "OCR", "Tailwind CSS"],
     },
     {
       name: "Azure Marketplace Sales Insights",
